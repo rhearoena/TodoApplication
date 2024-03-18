@@ -1,16 +1,14 @@
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <div class="submit-form">
+    <!-- <div class="submit-form">
       <div v-if="!submitted">
+        
         <div class="form-group">
           <label for="user_id">User</label>
           <input
             type="text"
             class="form-control"
             id="user_id"
-            required
+            isRequired
             v-model="todotask.user_id"
             name="user_id"
           />
@@ -32,7 +30,7 @@
           <input
             class="form-control"
             id="description"
-            required
+            isRequired 
             v-model="todotask.description"
             name="description"
           />
@@ -43,7 +41,7 @@
           <input
             class="form-control"
             id="planned_start_date"
-            required
+            isRequired 
             v-model="todotask.planned_start_date"
             name="planned_start_date"
           />    
@@ -54,7 +52,7 @@
            <input
             class="form-control"
             id="planned_end_date"
-            required
+            isRequired 
             v-model="todotask.planned_end_date"
             name="planned_end_date"
           />
@@ -67,8 +65,18 @@
         <h4>You submitted successfully!</h4>
         <button class="btn btn-success" @click="newTodotask">Add</button>
       </div>
-    </div>
-  </div>
+    </div> -->
+    <h2>JavaScript Validation</h2>
+
+<p>Please input a number between 1 and 10:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+
   </template>
   
   <script>
@@ -89,6 +97,7 @@
         submitted: false
       };
     },
+
     methods: {
       saveTodotask() {
         var data = {
@@ -113,6 +122,18 @@
       newTodotask() {
         this.submitted = false;
         this.todotask = {};
+      },
+
+      checkForm:function(e) {
+        this.errors = [];
+        if(!this.name) this.errors.push("Name required.");
+        if(!this.email) {
+          this.errors.push("Email required.");
+        } else if(!this.validEmail(this.email)) {
+          this.errors.push("Valid email required.");        
+        }
+        if(!this.errors.length) return true;
+        e.preventDefault();
       }
     }
   };

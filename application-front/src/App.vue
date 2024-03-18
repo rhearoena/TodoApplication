@@ -1,28 +1,9 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-import TodotasksList from './components/TodotasksList.vue';
+import Dashboard from './components/Dashboard.vue';
 </script>
 
 <template>
-  <div class="relative h-32 w-32 ...">
-
-    
-    <div class="absolute inset-y-0 left-0 w-16 ...">
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-        
-        <!-- <router-link to="/" class="navbar-brand">RheJerVinVie</router-link> -->
-        <div class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link to="/todotasks" class="nav-link">Todotasks</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/addTodotask" class="nav-link">Add</router-link>
-          </li>
-        </div>
-      </nav>
-    </div>
-  </div>
-  <TodotasksList/>
+    <Dashboard/>
 </template>
 
 <style scoped>
